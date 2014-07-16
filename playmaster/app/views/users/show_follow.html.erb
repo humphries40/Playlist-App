@@ -1,0 +1,11 @@
+<h1><%= @user.name %></h1>
+<table>
+          <% @follows.each do |friend| %>
+          <tr>
+            <td><%= friend.name %></td>
+            <td><%= friend.favBand %></td>
+            <td><%= friend.favSong %></td>
+            <td><%= link_to "view my profile", @user %></td>
+          </tr>
+          <% end %>
+</table>

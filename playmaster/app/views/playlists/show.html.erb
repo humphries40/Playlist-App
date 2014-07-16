@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<div class="playlist">
+<h1 class="header"><strong>Title: </strong><%= @playlist.title %></h1>
+
+<h1 class="header2"><strong>Belongs To: </strong><%= User.find(@playlist.user_id).name %></h1>
+
+<table class="MPtable" id="playlist">
+  <tr>
+    <th></th>
+    <th>Position</th>
+    <th>Song Title</th>
+    <th>Artist</th>
+    <th>Album</th>
+  </tr>
+
+<% pos = 1 %>
+<% @song_item.each do |song_item| %>
+  <tr id="<%= song_item.spotify_href %>">
+    <td class="playButton"><%= tag "p", {class: "glyphicon glyphicon-play"} %></td>
+    <td><%= pos %>
+    <td><%= song_item.title %></td>
+    <td><%= song_item.artist %></td>
+    <td><%= song_item.album %></td>
+  </tr>
+  <% pos = pos + 1 %>
+<% end %>
+
+</table>
+
+</div>
+<% if session[:user_id] == @playlist.user_id %>
+
+<div class="links">
+<%= link_to 'Edit this playlist', edit_playlist_path(@playlist) %> |
+<%= link_to 'Back to my playlists', playlists_path %>
+</div>
+<% end %> 
+
+
+
+
+

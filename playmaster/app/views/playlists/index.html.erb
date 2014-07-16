@@ -1,0 +1,25 @@
+
+<div class="playlist">
+<h1 class="header">My Playlists</h1>
+
+<table class="MPtable">
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @playlists.each do |playlist| %>
+  <tr>
+    <td><%= link_to playlist.title, playlist %></td>
+    <td><%= link_to 'Edit', edit_playlist_path(playlist) %></td>
+    <td><%= link_to 'Destroy', playlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>  
+    <td><%= link_to 'Clone', playlist, method: :post %></td> 
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+</div>

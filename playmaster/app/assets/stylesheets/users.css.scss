@@ -1,0 +1,117 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@import "compass/css3";
+@import "compass/utilities/tables";
+
+@import "compass/css3";
+$boxes : #B8B8B8;
+
+body {	
+	color : black;
+	background-image:url("/assets/AlbumBackground.png");
+}
+
+h1 {
+	text-align : center
+}
+
+form {
+		td {
+			text-align : left
+		}		
+}
+
+.friendsList {
+		text-align : left;
+		
+}
+
+.navbar-default {
+	background : Orange;
+	color : black;
+}
+
+.colorChange {
+	@include transition-property(background);
+	font-size : 15px;
+}
+
+.colorChange:hover {
+	background : DarkOrange;
+}
+
+.navbar-brand {
+	font-size : 20px;
+}
+.jumbotron {
+	background-color : DarkOrange;
+	color : white;
+	margin:200px;
+}
+
+.userInfo { 
+	text-align : left;
+	background-color : DarkOrange;
+	color : white;
+	margin : 100px 300px;
+	padding : 100px 0px;
+	border:2px solid;
+	border-radius:25px;
+	border-color : black;
+	}
+	
+#border-radius {
+  @include border-radius(25px);  
+}
+
+td {
+	font-size : 15px;
+}
+
+.field {
+	color : black;
+}
+
+.data {
+	color : black;
+}
+
+.findFriends {
+	text-align : center;
+	background-color : DarkOrange;
+	color : black;
+	margin : 100px 300px;
+	padding : 100px 0px;
+	border:2px solid;
+	border-radius:25px;
+	border-color : black;
+}
+
+#findFriends {
+  @include border-radius(25px);  
+}
+
+.header {
+	color : white;
+	margin : -60px 0px 50px 0px;
+}
+
+footer {
+background-color : DarkOrange;
+color : white;
+}
+
+.edit {
+	text-align : center;
+	font-size : 14px;
+	margin : 60px 0px -50px 0px;
+}
+
+#friend-result {
+  @include table-scaffolding;
+  @include inner-table-borders(1px, darken(black, 40%));
+  @include outer-table-borders(2px);
+} 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<div class="playlist">
+<h1 class="header">Editing Playlist </h1>
+<h1 class="header2">Title: <%= @playlist.title %></h1>
+
+
+
+<%= render 'form' %>
+
+
+<table class="MPtable" id="playlist">
+  <tr>
+    <th></th>
+    <th>Position</th>
+    <th>Song Title</th>
+    <th>Artist</th>
+    <th>Album</th>
+    <th></th>
+  </tr>
+
+
+<% pos = 1 %>
+<% @song_item.each do |song_item| %>
+  <tr id="<%= song_item.spotify_href %>">
+    <td class="playButton"><%= tag "p", {class: "glyphicon glyphicon-play"} %></td>
+    <td><%= pos %></td>
+    <td><%= song_item.title %></td>
+    <td><%= song_item.artist %></td>
+    <td><%= song_item.album %></td>
+    <td><%= button_to 'Destroy', song_item, method: :delete, data: { confirm: 'Are you sure?' }  %></td>
+  </tr>
+<% pos = pos + 1 %>
+<% end %>
+
+</table>
+
+
+
+<div class="search" id="search">
+  	<%= form_tag("/song_items", id: "song-search", method: :get, remote: true) do %>
+    <div class="searchBox"><%= select_tag :query, options_for_select([["Song","song"],["Artist","artist"],["Album","album"]]) %>
+    <%= text_field_tag(:value) %>
+    <%= hidden_field_tag(:playlist_id, @playlist.id) %>
+    <%= submit_tag("Search") %></div>
+  	<% end %>
+</div>
+</div>

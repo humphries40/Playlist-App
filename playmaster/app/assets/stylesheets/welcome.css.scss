@@ -1,0 +1,37 @@
+
+
+@import "compass/css3";
+
+.signin p {
+		text-align : center;
+}
+
+table {
+		margin: 0 auto;
+}
+
+.jumbotron {
+	background-color : DarkOrange;
+	color : white;
+	margin:150px 300px;
+	text-align : center;
+	@include border-radius(25px);
+	border:2px solid;
+	border-radius:25px;
+	border-color : black;
+}
+
+p {
+	font-size : 20px;
+
+}
+
+.example {
+
+font-size : 13px;
+}
+
+.welcome_message {
+		text-align : center;
+		margins :auto
+}

@@ -1,0 +1,53 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+  <h2>Enter User Details</h2>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :password, 'Password' %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, 'Confirm' %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+    <div class="field">
+    <%= f.label :favBand, 'Favorite Band(s)' %><br />
+    <%= f.text_field :favBand %>
+  </div>
+  <p class="example">Ex. Favorite Bands: "Metallica, Rage Against the Machine..."</p>
+  <div class="field">
+    <%= f.label :favSong, 'Favorite Song(s)' %><br />
+    <%= f.text_field :favSong %>
+  </div>
+  <p class="example">Ex. Favorite Songs: "Seek and Destroy, Mambo No. 5..."</p>
+  <div class="field">
+    <%= f.label :favGenre, 'Favorite Genre(s)' %><br />
+    <%= f.text_field :favGenre %>
+  </div>
+  <p class="example">Ex. Favorite Genres: "Rock, Alternative, Rap, ..."</p>
+   <div class="field">
+    <%= f.label :interests, 'Interest(s)' %><br />
+    <%= f.text_field :interests %>
+  </div>
+  <p class="example">Ex. Interests: "Sports, Video Games, CSE 3901, ..."</p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  </fieldset>
+<% end %>

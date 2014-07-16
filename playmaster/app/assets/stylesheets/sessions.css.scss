@@ -1,0 +1,23 @@
+// Place all the styles related to the Sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "compass/css3";
+
+
+.login {
+	background-color : DarkOrange;
+	color : black;
+	margin:200px 400px;
+	padding : 40px 20px;
+	@include border-radius(25px);
+	text-align : left;
+	border:2px solid;
+	border-radius:25px;
+	border-color : black;
+}
+
+.fields {
+
+	padding : 0px 0px 0px 175px;
+}

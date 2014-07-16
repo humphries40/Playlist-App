@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Playmaster</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  
+  <nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand"><strong>PlayMaster</strong></a>
+  </div>
+
+  <% unless session[:user_id] == nil %>	
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="colorChange"><% unless session[:user_id] == nil %>
+      <%= link_to User.find(session[:user_id]).name, user_path(session[:user_id]), :method => :get %>
+    <% end %></li>
+      <li class="colorChange"><%= link_to "My Playlists", playlists_url, :method => :get %></li>
+       <li class="colorChange"> <%= link_to "New Playlist", new_playlist_path %></li>
+      
+    </ul>
+   
+    <ul class="nav navbar-nav navbar-right">
+      <li class="colorChange"><% unless session[:user_id] == nil %>
+      <%= link_to "Log Out", logout_path, :method => :delete %>
+    <% end %></li>
+    </ul>
+    
+         
+    
+  </div><!-- /.navbar-collapse -->
+  <% end %>
+</nav>
+</head>
+<body>
+
+
+  <%= yield %>
+
+</body>
+</html>

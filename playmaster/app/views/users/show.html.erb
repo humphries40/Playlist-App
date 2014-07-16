@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="userInfo" id="border-radius">
+
+<h1 class="header">User Information</h1>
+
+
+  <table>
+    <tr>
+      <td class="field"><strong>Name:</strong></td>
+      <td class="data"><%= @user.name %></td>
+    </tr>
+    <tr>
+      <td class="field"><strong>Favorite Bands:</strong></td>
+      <td class="data"><%= @user.favBand%></td>
+    </tr>
+    <tr>
+      <td class="field"><strong>Favorite Songs:</strong></td>
+      <td class="data"><%= @user.favSong%></td>
+    </tr>
+    <tr>
+      <td class="field"><strong>Favorite Genres:</strong></td>
+      <td class="data"><%= @user.favGenre%></td>
+    </tr>
+    <tr>
+      <td class="field"><strong>Interests:</strong></td>
+      <td class="data"><%= @user.interests%></td>
+    </tr>
+</table>
+
+<% if session[:user_id] == @user.id %>
+<p class="edit"><%= link_to 'Edit Account', edit_user_path(@user) %></p>  
+<% else %>
+<p class="userPlaylist">
+<td class="field"><strong><%=@user.name %>'s Playlists:</strong></td>
+<table>
+<% @playlists.each do |playlist| %>
+          <tr>
+            <td><%= link_to playlist.title, playlist %></td>
+            <td><%= link_to 'Clone', playlist, method: :post %></td> 
+          </tr>
+  <% end %>
+</table>
+</p>
+<% end %>
+</div>
+<div class="findFriends" id="findFriends">
+<h2 class="header">Search for other Users</h2>	
+  <%= form_tag("/users", id: "friend-search", method: :get, remote: true) do %>
+    <%= label_tag :name, "Name" %>
+    <%= text_field_tag(:name) %>
+    <%= hidden_field_tag(:id, @user.id) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</div>
